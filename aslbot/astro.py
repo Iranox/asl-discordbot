@@ -50,8 +50,6 @@ class AstroCog(commands.Cog):
 
         await ctx.send(fun_facts_universium[random.randrange(0, len(fun_facts_universium))])
 
-    async def on_message(self, message):
-        print(message.content)
 
 
 def setup(bot):
