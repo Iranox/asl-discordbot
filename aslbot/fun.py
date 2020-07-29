@@ -33,5 +33,10 @@ class FunCog(commands.Cog):
     async def star_trek_facepalm(self, ctx):
         await ctx.send("https://gph.is/2nBvKOZ")
 
+    @commands.command(name='pika', help="pikaCHUUUUUUUUUU")
+    async def star_trek_facepalm(self, ctx):
+        await ctx.send("https://www.youtube.com/watch?v=AjSuZgNgMZc")
+
+
 def setup(bot):
     bot.add_cog(FunCog(bot))
