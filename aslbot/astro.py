@@ -34,6 +34,10 @@ class AstroCog(commands.Cog):
 
         await ctx.send(message)
 
+    @commands.command(name='sonne', help="Sie wird heute Nacht nicht untergehen\nUnd die Welt zählt laut bis zehn")
+    async def rammstein(self, ctx, ):
+        await ctx.send("https://www.youtube.com/watch?v=StZcUAPRRac")
+
     @commands.command(name='star', help="Lustige fun facts.")
     async def star_command(self, ctx, ):
         fun_facts_universium = [

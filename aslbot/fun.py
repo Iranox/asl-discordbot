@@ -1,10 +1,5 @@
-import datetime
-import random
-
-from datetime import datetime
-
-
 from discord.ext import commands
+
 
 class FunCog(commands.Cog):
     def __init__(self, bot):
@@ -25,6 +20,18 @@ class FunCog(commands.Cog):
     @commands.command(name='darkside', help="Dark site of the force")
     async def darkside(self, ctx):
         await ctx.send("https://gph.is/VxbsSv")
+
+    @commands.command(name='hootsforce', help="a music video with submarines fighting an evil wizard... in space")
+    async def space_metal(self, ctx):
+        await ctx.send("https://gph.is/VxbsSv")
+
+    @commands.command(name='headache', help="...")
+    async def star_trek_headache(self, ctx):
+        await ctx.send("https://giphy.com/gifs/6OWIl75ibpuFO")
+
+    @commands.command(name='facepalm', help=":person_facepalming: ")
+    async def star_trek_facepalm(self, ctx):
+        await ctx.send("https://gph.is/2nBvKOZ")
 
 def setup(bot):
     bot.add_cog(FunCog(bot))
