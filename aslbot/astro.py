@@ -38,6 +38,23 @@ class AstroCog(commands.Cog):
     async def rammstein(self, ctx, ):
         await ctx.send("https://www.youtube.com/watch?v=StZcUAPRRac")
 
+    @commands.command(name='lightspeed', help="Wie lange braucht das Licht? Eingabe in km")
+    async def rammstein(self, ctx, distance: str):
+        lightspeed_vacum = 299_792_458
+        lightspeed_air = 299_705_518
+        lightspeed_water = 225_000_000
+        lightspeed_glas = 160_000_000
+        try:
+            distance_float = float(distance) * 1000
+            result_calc = ["Das Licht braucht in folgenden Medium so lange (in s):\n",
+                           f"Luft: {distance_float / lightspeed_air}\n",
+                           f"Vakum: {distance_float / lightspeed_vacum}\n",
+                           f"Wasser: {distance_float / lightspeed_water}\n",
+                           f"Glas: {distance_float / lightspeed_glas}\n"]
+            await ctx.send("".join(result_calc))
+        except ValueError:
+            await ctx.send("Bitte nur Zahlen!")
+
     @commands.command(name='star', help="Lustige fun facts.")
     async def star_command(self, ctx, ):
         fun_facts_universium = [
@@ -51,9 +68,7 @@ class AstroCog(commands.Cog):
             "Im All schnarchen Astronauten nicht so laut wie auf der Erde.",
             "Der Olympus Mons auf dem Mars ist an seinem Fuß so groß, dass ein Besucher auf seinem Gipfel nicht wissen würde, dass er auf einem Berg steht, weil der Abhang von der Planetenkrümmung verdeckt wäre.",
         ]
-
         await ctx.send(fun_facts_universium[random.randrange(0, len(fun_facts_universium))])
-
 
 
 def setup(bot):
