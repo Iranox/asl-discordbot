@@ -39,7 +39,7 @@ class AstroCog(commands.Cog):
         await ctx.send("https://www.youtube.com/watch?v=StZcUAPRRac")
 
     @commands.command(name='lightspeed', help="Wie lange braucht das Licht? Eingabe in km")
-    async def rammstein(self, ctx, distance: str):
+    async def lightspeed_calc(self, ctx, distance: str):
         lightspeed_vacum = 299_792_458
         lightspeed_air = 299_705_518
         lightspeed_water = 225_000_000
