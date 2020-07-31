@@ -58,7 +58,7 @@ class AstroCog(commands.Cog):
     @commands.command(name='star', help="Lustige fun facts.")
     async def star_command(self, ctx, ):
         fun_facts_universium = [
-            "Die Galaxie names NGC 4594 wird uach Sombrero-Galaxie genannt.",
+            "Die Galaxie names NGC 4594 wird uach Sombrero-Galaxie genannt blub.",
             "Der Asteroid Vesta hat einen Durchmesser von 530 km. Da ist die Luftlinie zwischen Berlin und Wien.",
             "Dss Volumen des Mondes ist etwa die Größte des pazifischen Ozean.",
             "Auf dem Planeten Jupiter und Saturn regnet es Diamanten.",
