@@ -4,7 +4,7 @@ import discord
 import logging
 
 
-class BaseCog(commands.cog):
+class BaseCog(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
