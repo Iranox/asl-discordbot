@@ -3,7 +3,7 @@ from DbHandler import DbHandler
 import helper
 
 
-class QuoteCog(commands.cog):
+class QuoteCog(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self.db = DbHandler()
