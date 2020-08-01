@@ -54,12 +54,22 @@ class FunCog(commands.Cog):
         "Alles ist eine Nebelmaschine, wenn man es nur falsch genug bedient - Ines",
         "Mein Bedürfnis nach Koffein ist größer als mein Geschmackssinn - Stefan",
         "Unsere Sonne kreist auch um etwas. Vielleicht ist sie auch ein Planet - Enzo",
+        "Mhm... Chemie... Meine Lieblingsgeschmackrichtung - Paul H",
         "https://vega-astro.de/wp-content/uploads/2020/02/Startseite5.jpg",
         "https://vega-astro.de/wp-content/uploads/2020/01/WasBietenWir.jpg",
+        "Das beste am Eis is immer das Eis - Eric",
+        "Die wahre Natur des Teilis offenbart sich nur am ersten Tag",
+        "Death by Chocolate",
+        "Alles was wahr ist, steht bei Wikipedia. Und alles was bei Wikipedia steht, ist wahr.",
+        "Denn die Poost~",
+        "Und wie so oft lösen wir dieses Problem auch mit GEWALT!",
+        "Mir gehen die Ideen und Zitate aus... Für mehr Input, bitte eine Nachricht an Fabian L. :)",
         "https://vega-astro.de/wp-content/uploads/photo-gallery/imported_from_media_libray/Gesus_231-scaled.jpg?bwg=1579449084",
         "https://vega-astro.de/wp-content/uploads/photo-gallery/imported_from_media_libray/Gesus_14-scaled.jpg?bwg=1579449084",
         "https://vega-astro.de/wp-content/uploads/photo-gallery/imported_from_media_libray/Gesus_283-scaled.jpg?bwg=1579449084",
         "https://vega-astro.de/wp-content/uploads/photo-gallery/imported_from_media_libray/Lukas-Weis_p_0011-scaled.jpg?bwg=1579449084",
+        "https://cdn.discordapp.com/attachments/733046438212141138/737404834235547750/unknown.png",
+        "https://cdn.discordapp.com/attachments/733046438212141138/737404423940210888/unknown.png"
         ]
         await ctx.send(old_school[random.randrange(0, len(old_school))])
 
@@ -79,7 +89,11 @@ class FunCog(commands.Cog):
                 "Kalenderblatt zum Sammeln malen!",
                 "Eine Rakete fuer das naechste ASL basteln (Challenge bis zum Endes des ASLs"
                 ]
-        await ctx.send(chal[dt.day])
+        try:
+            message = chal[dt.day]
+        except:
+            message = ["Sich auf das ASL freuen!"]
+        await ctx.send(message)
 
 
 def setup(bot):
