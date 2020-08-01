@@ -4,12 +4,15 @@ import random
 from astral import LocationInfo, moon
 from astral.sun import sun
 from discord.ext import commands
+from DbHandler import DbHandler
+from discord import File as send_file
 
 
 class AstroCog(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self.city = LocationInfo("Berlin", "Germany", "Europe/Berlin", 52.52, 13.4)
+        self.db = DbHandler()
 
     @commands.command(name='sun', help="Nautischer Sonnenaufgang und -untergang")
     async def sun_command(self, ctx, ):
@@ -22,7 +25,6 @@ class AstroCog(commands.Cog):
     @commands.command(name='moon', help="Die heutige Mondphase")
     async def moon_command(self, ctx, ):
         mon_phase = moon.phase(datetime.datetime.now())
-        message = ""
         if mon_phase < 6.99:
             message = "Aktuell ist Neumond :new_moon:"
         elif 6.99 < mon_phase < 13.99:
@@ -69,6 +71,24 @@ class AstroCog(commands.Cog):
             "Der Olympus Mons auf dem Mars ist an seinem Fuß so groß, dass ein Besucher auf seinem Gipfel nicht wissen würde, dass er auf einem Berg steht, weil der Abhang von der Planetenkrümmung verdeckt wäre.",
         ]
         await ctx.send(fun_facts_universium[random.randrange(0, len(fun_facts_universium))])
+
+    @commands.command(name="ereignisse", help="Tells you interesting astronomical, observable events occuring soon")
+    async def get_events(self, ctx, ):
+        events = self.db.get_events()
+        if not events:
+            await ctx.send(
+                "There is either nothing interesting to happen or an error occured. When in doubt check logs.")
+            return
+        string = ""
+        for event in events:
+            string = string + "Time: " + str(event["time"]) + "\n" + "Object: " + str(
+                event["object"]) + "\n" + "Details: " + str(event["details"]) + "\n\n"
+        if not string:
+            string = "There is either nothing interesting to happen or an error occured. When in doubt check logs."
+        with open("events.txt", "w+") as f:
+            f.write(string)
+        with open("events.txt", "rb") as f:
+            await ctx.send("Here are your astronomic events", file=send_file(f, "ereignisse.txt"))
 
 
 def setup(bot):
