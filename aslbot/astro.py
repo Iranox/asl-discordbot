@@ -60,15 +60,29 @@ class AstroCog(commands.Cog):
     @commands.command(name='star', help="Lustige fun facts.")
     async def star_command(self, ctx, ):
         fun_facts_universium = [
-            "Die Galaxie names NGC 4594 wird uach Sombrero-Galaxie genannt blub.",
+            "Die Galaxie names NGC 4594 wird auch Sombrero-Galaxie genannt.",
             "Der Asteroid Vesta hat einen Durchmesser von 530 km. Da ist die Luftlinie zwischen Berlin und Wien.",
-            "Dss Volumen des Mondes ist etwa die Größte des pazifischen Ozean.",
+            "Dss Volumen des Mondes ist vergleichbar mit der Größe des pazifischen Ozean.",
             "Auf dem Planeten Jupiter und Saturn regnet es Diamanten.",
             "Die Nasa-Sonde Mars Climate Orbiter stürzte 1999 auf den Roten Planeten, weil die Hersteller das Navigationssystem mit unterschiedlichen Einheiten gefüttert hatten. Die Nasa hatte metrische Einheiten verwendet, die Ingenieure der Firma Lockheed Martin aber mit Fuß statt Meter gerechnet.",
             "Hunderte Fadenwürmer, an denen die Auswirkungen der Schwerelosigkeit erforscht werden sollten, überlebten den Absturz der Raumfähre Columbia.",
             "HAT-P-1b ist der Name eines Planeten, der im Sternbild Eidechse seine Sonne umkreist. Er ist 1,36-mal so groß wie Jupiter, hat aber nur eine Viertel der Dichte von Wasser.",
             "Im All schnarchen Astronauten nicht so laut wie auf der Erde.",
             "Der Olympus Mons auf dem Mars ist an seinem Fuß so groß, dass ein Besucher auf seinem Gipfel nicht wissen würde, dass er auf einem Berg steht, weil der Abhang von der Planetenkrümmung verdeckt wäre.",
+            "Das Sternbild Schild (südlich des Schwanes) ist dem Wappen des polnischen Königs Jan III. Sobieski gewidmet, der die Stadt Wien von türkischen Belagerern befreite.",
+            "Der Mars Rover Curiosity war darauf programmiert, jedes Jahr sich selber Happy Birthday zu singen.",
+            "Nur unser Heimatplanet Erde im Sonnensystem ist nach keiner Gottheit benannt.",
+            "Auf der Venus regnet es Schwefelsäure.",
+            "Auf dem kleinsten Saturnmond Mimas ist die Gravitation so gering, dass ein erwachsener Mensch aus dem Stand über 70 m hoch springen könnte",
+            "Der größte Meteorit aus Deutschland lag jahrelang dekorativ im Garten und dann im Kleiderschrank, bis er dieses Jahr wissenschaftlich untersucht worden ist.",
+            "Der Kern des Jupiters ist heißer als die Oberfläche unserer Sonne.",
+            "Wer seine eigene Nichtigkeit im Universum visualisiert haben möchte, sollte das Video 'Powers of Ten' auf Youtube sich ansehen.",
+            "Würde man die körpereigene DNA komplett entrollen, würde sie bis zum Pluto reichen... 6 mal hin und zurück (über 54 Millionen Kilometer)."
+            "Wir sind alle aus Sternenstaub (den Fusionsüberresten alter Sonnen, die vor Milliarden Jahren verbrannten und explodierten).",
+            "Die Datenmenge für das erste Bild eines Schwarzen Loches (im Herzen der Galaxie Messier 87) betrug über 3500 Terabyte an Rohdaten. Das sind gut 70.000 mal alle ASL Filme.",
+            "Ein Jahr auf der Venus dauert 224 Erdtage. Ein Tag auf der Venus dauert 243 Erdtage. Somit ist ein Tag länger als ein Jahr auf diesem Planeten.",
+            "Es gibt schätzungsweise 300 Trilliarden Sterne im Universum (3x10^23) (grob gerundet und geschätzt), was mehr ist als Sandkörner auf der Erde existieren.",
+            "Das ASL ist das einzige kosmische Ereignis, was jährlich eine Unzahl junger Menschen um ihren Schlaf, Verstand und Süßigkeitenvorrat bringt."
         ]
         await ctx.send(fun_facts_universium[random.randrange(0, len(fun_facts_universium))])
 
