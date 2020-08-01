@@ -12,7 +12,7 @@ def get_dices_result(number_of_pipes: int, throws: int) -> str:
     dice_throw_result = roll_dice(number_of_pipes, throws)
     dice_throw_result_str = ", ".join((str(i) for i in dice_throw_result))
     dice_throw_sum = reduce(lambda x, y: x + y, dice_throw_result)
-    return f"Ergebnis: {dice_throw_result_str}\nSummer:{dice_throw_sum}"
+    return f"Ergebnis: {dice_throw_result_str}\nSumme:{dice_throw_sum}"
 
 
 class DiceCog(commands.Cog):

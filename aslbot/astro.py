@@ -82,27 +82,52 @@ class AstroCog(commands.Cog):
             "Die Datenmenge für das erste Bild eines Schwarzen Loches (im Herzen der Galaxie Messier 87) betrug über 3500 Terabyte an Rohdaten. Das sind gut 70.000 mal alle ASL Filme.",
             "Ein Jahr auf der Venus dauert 224 Erdtage. Ein Tag auf der Venus dauert 243 Erdtage. Somit ist ein Tag länger als ein Jahr auf diesem Planeten.",
             "Es gibt schätzungsweise 300 Trilliarden Sterne im Universum (3x10^23) (grob gerundet und geschätzt), was mehr ist als Sandkörner auf der Erde existieren.",
-            "Das ASL ist das einzige kosmische Ereignis, was jährlich eine Unzahl junger Menschen um ihren Schlaf, Verstand und Süßigkeitenvorrat bringt."
+            "Das ASL ist das einzige kosmische Ereignis, was jährlich eine Unzahl junger Menschen um ihren Schlaf, Verstand und Süßigkeitenvorrat bringt.",
+            "Astronauten müssen tatsächlich auf Bohnen verzichten, da Raumanzüge nicht für ausreichenden Gasaustausch konzipiert sind.",
+            "Ein Venusjahr ist kürzer als ein Venustag.",
+            "Da der Mond keine (nennenswerte) Athmosphäre hat, bleiben Fusspuren dort sehr Lange sichtbar.",
+            "Die Chance binnen eines Jahres von einem Stück Weltraummüll erschlagen zu werden, liegt bei eins zu einer Milliarde",
+            "Astronauten der ISS sehen täglich 15 Sonnenauf- und -untergänge.",
+            "Die Milchstraße wiegt neuesten Messungen zu Folge ca 960 Milliarden Sonnenmassen.",
+            "Auf dem Mond liegen tatsächlich zwei Golfbälle rum.",
+            "In Chile kann man Wein kaufen, der Milliarden Jahre altes Meteoritengestein enthält.",
+            "Der Asteroid Chariklo hat saturnähnliche Ringe im Miniaturformat.",
+            "Der Exoplanet 55 Cancri e ist höchstwahrscheinlich von Graphit und Diamanten bedeckt.",
+            "Auf dem Exoplaneten HD 189733b regnet es vermutlich Glas.",
+            "In Australien sieht der Mond für Europäer um 180° gedreht aus.",
+            "Hunderte Fadenwürmer, an denen die Auswirkungen der Schwerelosigkeit erforscht werden sollten, haben den Absturz der Raumfähre Columbia überlebt.",
+            "Hartnäckigen Gerüchten zufolge hat sich ein amerikanisches Astronauten-Paar 1996 wissenschaftlich mit Sex in der Schwerelosigkeit beschäftigt. Demnach seien vier Stellungen für die Bedingungen im Weltall geeignet. Die Nasa dementiert.",
+            "In der Schwerelosigkeit haben Astronauten oft verstopfte Nasen. Der Rotz fließt nicht ab.",
+            "Die Milchstraße hat eine Begleitergalaxie namens \"Sextans Dwarf\"",
+            "Asien ist flächenmäßig größer als der Mond.",
+            "Sonnenuntergänge erscheinen auf dem Mars bläulich.",
+            "Die Entdeckung des Pluto ist erst ein drittel Plutojahr her.",
+            "Am 2.11.2000 waren zuletzt alle lebenden Menschen auf der Erde. Seit dem ist die ISS permanent bemannt.",
+            "Von 1781 bis 1850 nannte man Uranus noch George.",
+            "Der ursprünglich für eine Missionsdauer von 90 Tagen konzipierte Mars-Rover Opportunity verrichte seinen Dienst tatsächlich 15 Jahre lang.",
+            "Es is anatomisch unmöglich in der Schwerelosigkeit zu rülpsen.",
+            "Die Entdekcung des Planeten Uranus im Jahr 1781 fand noch vor der Entdeckung der Antarktis im Jahr 1820 statt."
         ]
         await ctx.send(fun_facts_universium[random.randrange(0, len(fun_facts_universium))])
 
-    @commands.command(name="ereignisse", help="Tells you interesting astronomical, observable events occuring soon")
+    @commands.command(name="ereignisse", help="Listet interessante astronomische Ereignisse auf, die in nächster Zeit "
+                                              "zu sehen sind.")
     async def get_events(self, ctx, ):
         events = self.db.get_events()
         if not events:
             await ctx.send(
-                "There is either nothing interesting to happen or an error occured. When in doubt check logs.")
+                "Entweder es gibt demnächst nichts interessantes oder irgendwas ist schief gelaufen :(")
             return
         string = ""
         for event in events:
             string = string + "Time: " + str(event["time"]) + "\n" + "Object: " + str(
                 event["object"]) + "\n" + "Details: " + str(event["details"]) + "\n\n"
         if not string:
-            string = "There is either nothing interesting to happen or an error occured. When in doubt check logs."
+            string = "Entweder es gibt demnächst nichts interessantes oder irgendwas ist schief gelaufen :("
         with open("events.txt", "w+") as f:
             f.write(string)
         with open("events.txt", "rb") as f:
-            await ctx.send("Here are your astronomic events", file=send_file(f, "ereignisse.txt"))
+            await ctx.send("Hier sind die spannenden Ereignisse!", file=send_file(f, "ereignisse.txt"))
 
 
 def setup(bot):
