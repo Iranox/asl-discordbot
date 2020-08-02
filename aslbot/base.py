@@ -12,6 +12,7 @@ class BaseCog(commands.Cog):
     async def on_member_join(self, member):
         try:
             role = discord.utils.get(member.guild.roles(), name="Zwergplanet")
+            logging.debug("Role: " + str(role))
             await member.add_roles(role)
         except Exception as e:
             logging.error(str(e))
