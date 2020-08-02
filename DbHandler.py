@@ -117,6 +117,8 @@ class DbHandler:
         except mariadb.Error as e:
             logging.error("Inserting program failed: " + str(e))
             return False
+        except Exception as e:
+            logging.error(str(e))
 
     def get_program(self):
         try:
