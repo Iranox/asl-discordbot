@@ -113,6 +113,7 @@ class DbHandler:
             }
             self.cursor.execute("DELETE FROM programs;")
             statement = "INSERT INTO programs (date, author, program) VALUES (%(date)s, %(author)s, %(program)s);"
+            logging.info("Statement: " + statement)
             self.cursor.execute(statement, values)
             return True
         except mariadb.Error as e:
@@ -123,12 +124,16 @@ class DbHandler:
         try:
             self.cursor.execute("SELECT program FROM programs;")
             programs = []
-            for program in self.cursor:
-                programs.append(program)
+            for p in self.cursor:
+                programs.append(p)
             if len(programs) != 1:
                 return "Es ist noch kein Programm gesetzt :("
-            program = programs[0]
+            program = programs[0][0]
+            program = program.replace("; ", "\n")
             return program
         except mariadb.Error as e:
             logging.error("Getting of program failed: " + str(e))
-            return ""
+            return "Oops, da ist was schief gelaufen. Näherer in den Logs."
+        except Exception as e:
+            logging.error("Getting of program failed: " + str(e))
+            return "Oops, da ist was schief gelaufen. Näherer in den Logs."
