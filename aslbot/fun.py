@@ -96,17 +96,21 @@ class FunCog(commands.Cog):
     @commands.command(name='challenge', help="Was ist die heutige Challenge?")
     async def challenge(self, ctx):
         dt = datetime.datetime.today()
-        chal = [
-                "Sich auf das ASL freuen",
-                "Sich auf das ASL freuen",
-                "Sich auf das ASL freuen",
-                "Finde einen Astro-Gegenstand und mache ein Foto davon!",
-                "Irgendwo hinfahren zum Sterne gucken (Challenge bis zum Ende des ASLs)",
-                "ASL-Trauertag (dem nicht-digital-Camp hinterhertrauern)",
-                "Kalenderblatt zum Sammeln malen!",
-                "Eine Rakete für das nächste ASL basteln (Challenge bis zum Endes des ASLs)"
-            ]
-        await ctx.send(chal[dt.day])
+        challenges = {
+            3: "Was verbindet uns alle? Die Astronomie natürlich! Der erste Tageschallange ist es einen Gegenstand bei euch Zuhause zu finden der etwas mit Astronomie zu tun hat und ein Bild davon zu posten!",
+            4: "Heute und die nächsten 2 Wochen wollen wir gemeinsam die Sterne Beobachten! Macht ein Foto davon, damit wir sie alle sammeln können und so zusammen schauen können! (Challange läuft bis zum Ende des Camps!)",
+            5: "ASL-Trauertag: Das ASL ist dieses Jahr nur digital und das ist schade! Macht ein Bild das zeigt wie ihr das ASL vermisst!",
+            6: "Die Zeitung braucht eure Hilfe! Malt ein Kalenderblatt zum Sammeln!",
+            7: "Was darf in keinem guten ASL fehlen? Raketen! Bastelt also eine Rakete die ihr im nächsten ASL starten lassen könnt und präsentiert sie uns per Bild! (Zum gemeinsamen Basteln könnt ihr euch in der Werkstatt treffen und da auch ein paar Anleitungen finden) (Challange läuft bis zum Ende des Camps)",
+            8: "Was passiert am 7ten Tag im ASL? Natürlich der Wandertag! Also geht wandern, schickt uns ein tolles Bild davon, und wenn ihr wollt gleich noch eure Route mit dazu!",
+            9: "Heute wollen wir den Sonnenaufgang sehen! Und nach klassischer ASL-sitte lässt sich der natürlich am Besten fotografieren wenn man bis dahin wach geblieben ist!",
+            10: "Für ein richtiges ASL-Feeling ist der Süßigkeitenkommunismus essentiell! Also kauft euch Süßigkeiten und teilt sie mit jemandem! (und sehen wollen wir das natürlich auch!)",
+            11: "Heute sollt ihr Teebeutel jonglieren! Warum? - falsche Frage, ihr wollt wissen wie viele! Und darauf ist die Antwort: mindestens drei, für weitere gibts Bonuspunkte! (Den Beweis dürft ihr entweder als Foto oder als gif liefern :) )",
+            12: "ASL-Feiertag!: Das ASL ist toll und das nächste ist nur noch 354 Tage von uns entfernt! Zeigt uns wie ihr euch auf das nächste ASL freut!",
+            13: "Dem heutigen Challenge werden sich nur die mutigsten unter euch sich stellen! Kauft Sauerkrautsaft und trinkt ihn! (Natürlich brauchen wir für so eine Heldentat auch ein Beweisbild...)",
+            14: "Um die letzte Nacht wie gewohnt durchmachen zu können sind Durchhaltevermögen und natürlich auch der klassische Kaffee oder Tee absolut unverzichtbar! Deswegen wollen wir heute ein Bild von eurem treuen Heißgetränk das euch wach hält!"
+        }
+        await ctx.send(challenges[dt.day])
 
 
 def setup(bot):
