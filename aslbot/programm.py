@@ -13,7 +13,7 @@ class ProgrammCog(commands.Cog):
     @commands.has_role("Leiter")
     async def sun_command(self, ctx, *programm):
         date = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
-        program = ";".join(programm)
+        program = " ".join(programm)
         author = ctx.message.author.name
         query = self.db.set_program(author=author, program=program, date=date)
         if query:
