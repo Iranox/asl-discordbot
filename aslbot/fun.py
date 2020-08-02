@@ -79,7 +79,7 @@ class FunCog(commands.Cog):
             "Wer will eine Fleischwunde? - Io",
             "So viele Fragen, auf die nicht mal die Physiker keine logische Antwort haben - Vanessa",
             "Ich fühle mich wie ein Nazi, ich krieg’ immer auf die Fresse - Ayan",
-            "Aus großer Schubkraft folgt große Verantwortung - Eric",
+            "Aus großer Schubkraft folgt große Verantwortung! - Eric",
             "Kostet das was, oder kann man sich das irgendwo herunterladen? - Chiara",
             "Flo hat doch immer Thermit dabei. - Laura",
             "Am besten, ihr nutzt die Pause zum Pausemachen. - Fabi",
