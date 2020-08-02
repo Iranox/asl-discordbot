@@ -114,11 +114,10 @@ class DbHandler:
             self.cursor.execute("DELETE FROM programs;")
             statement = "INSERT INTO programs (date, author, program) VALUES (%(date)s, %(author)s, %(program)s);"
             self.cursor.execute(statement, values)
+            return True
         except mariadb.Error as e:
             logging.error("Inserting program failed: " + str(e))
             return False
-        except Exception as e:
-            logging.error(str(e))
 
     def get_program(self):
         try:
