@@ -76,7 +76,7 @@ class AstroCog(commands.Cog):
             "Auf dem kleinsten Saturnmond Mimas ist die Gravitation so gering, dass ein erwachsener Mensch aus dem Stand über 70 m hoch springen könnte",
             "Der größte Meteorit aus Deutschland lag jahrelang dekorativ im Garten und dann im Kleiderschrank, bis er dieses Jahr wissenschaftlich untersucht worden ist.",
             "Der Kern des Jupiters ist heißer als die Oberfläche unserer Sonne.",
-            "Wer seine eigene Nichtigkeit im Universum visualisiert haben möchte, sollte das Video 'Powers of Ten' auf Youtube sich ansehen.",
+            "Wer seine eigene Nichtigkeit im Universum visualisiert haben möchte, sollte sich das Video 'Powers of Ten' auf Youtube ansehen.",
             "Würde man die körpereigene DNA komplett entrollen, würde sie bis zum Pluto reichen... 6 mal hin und zurück (über 54 Millionen Kilometer)."
             "Wir sind alle aus Sternenstaub (den Fusionsüberresten alter Sonnen, die vor Milliarden Jahren verbrannten und explodierten).",
             "Die Datenmenge für das erste Bild eines Schwarzen Loches (im Herzen der Galaxie Messier 87) betrug über 3500 Terabyte an Rohdaten. Das sind gut 70.000 mal alle ASL Filme.",
