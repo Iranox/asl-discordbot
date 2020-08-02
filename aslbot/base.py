@@ -12,7 +12,7 @@ class BaseCog(commands.Cog):
     async def on_member_join(self, member):
         try:
             logging.debug("Role: get")
-            role_to_set = await discord.utils.get(member.guild.roles(), name="Zwergplanet")
+            role_to_set = discord.utils.get(member.guild.roles(), name="Zwergplanet")
             logging.debug("Role: got")
             logging.debug("Role: " + str(role_to_set))
             await member.add_roles(role_to_set)
