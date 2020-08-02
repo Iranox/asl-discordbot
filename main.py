@@ -7,7 +7,7 @@ import logging
 for handler in logging.root.handlers[:]:
     logging.root.removeHandler(handler)
 FORMAT = "[%(asctime)s - %(levelname)s - %(filename)s:%(lineno)s - %(funcName)s()] %(message)s"
-logging.basicConfig(filename='bot.log', level=logging.INFO, format=FORMAT)
+logging.basicConfig(filename='bot.log', level=logging.DEBUG, format=FORMAT)
 
 
 load_dotenv()

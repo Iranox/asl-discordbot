@@ -11,14 +11,13 @@ class BaseCog(commands.Cog):
     @commands.Cog.listener()
     async def on_member_join(self, member):
         try:
-            logging.debug(str(member.name) + " connected")
-            await member.create_dm()
-            await member.dm_channel.send("Hi " + str(member.name) + ", welcome to the Stars!")
+            role = discord.utils.get(member.guild.roles(), name="Zwergplanet")
+            await member.add_roles(role)
         except Exception as e:
             logging.error(str(e))
         try:
-            channel = discord.utils.get(member.guild.channels, name='milkyway')
-            await channel.send("Hello " + str(member.name) + ", welcome to the Galaxy!")
+            channel = discord.utils.get(member.guild.channels, name='eingangshalle')
+            await channel.send("Herzlich Willkommen " + str(member.name) + " im ASL!")
         except Exception as e:
             logging.error(str(e))
 
