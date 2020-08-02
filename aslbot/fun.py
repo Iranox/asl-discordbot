@@ -1,6 +1,8 @@
 from discord.ext import commands
 import random
 import datetime
+import logging
+
 
 class FunCog(commands.Cog):
     def __init__(self, bot):
@@ -111,7 +113,12 @@ class FunCog(commands.Cog):
             13: "Dem heutigen Challenge werden sich nur die mutigsten unter euch sich stellen! Kauft Sauerkrautsaft und trinkt ihn! (Natürlich brauchen wir für so eine Heldentat auch ein Beweisbild...)",
             14: "Um die letzte Nacht wie gewohnt durchmachen zu können sind Durchhaltevermögen und natürlich auch der klassische Kaffee oder Tee absolut unverzichtbar! Deswegen wollen wir heute ein Bild von eurem treuen Heißgetränk das euch wach hält!"
         }
-        await ctx.send(challenges[dt.day])
+        try:
+            chall = challenges[dt.day]
+        except Exception as e:
+            logging.error(str(e))
+            chall = "Keine Tageschallenge heute :("
+        await ctx.send(chall)
 
 
 def setup(bot):
