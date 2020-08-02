@@ -11,9 +11,11 @@ class BaseCog(commands.Cog):
     @commands.Cog.listener()
     async def on_member_join(self, member):
         try:
-            role = await discord.utils.get(member.guild.roles(), name="Zwergplanet")
-            logging.debug("Role: " + str(role))
-            await member.add_roles(role)
+            logging.debug("Role: get")
+            role_to_set = await discord.utils.get(member.guild.roles(), name="Zwergplanet")
+            logging.debug("Role: got")
+            logging.debug("Role: " + str(role_to_set))
+            await member.add_roles(role_to_set)
         except Exception as e:
             logging.error(str(e))
         try:
