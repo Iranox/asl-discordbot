@@ -124,6 +124,8 @@ class DbHandler:
             programs = []
             for program in self.cursor:
                 programs.append(program)
+            if len(programs) != 1:
+                return "Es ist noch kein Programm gesetzt :("
             program = programs[0]
             return program
         except mariadb.Error as e:
