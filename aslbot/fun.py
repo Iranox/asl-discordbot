@@ -85,7 +85,8 @@ class FunCog(commands.Cog):
             "Am besten, ihr nutzt die Pause zum Pausemachen. - Fabi",
             "Leider haben wir keinen mit Lungenentzündung hier. - Aliona",
             "Zwischendurch wirds noch laut knallen – das ist dann Flo. - Sonja",
-            "Das ist mir zu nerdig. Sprechen wir über Star Wars. - Phillip"
+            "Das ist mir zu nerdig. Sprechen wir über Star Wars. - Phillip",
+            "2009: Der Beweis, dass Fernsehreporter nicht wissen, was ein Bose-Einstein-Kondensat ist, wurd erbracht!"
         ]
         await ctx.send(old_school[random.randrange(0, len(old_school))])
 
