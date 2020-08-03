@@ -23,5 +23,8 @@ bot.load_extension("aslbot.dice")
 bot.load_extension("aslbot.zitate")
 bot.load_extension("aslbot.base")
 
-print(TOKEN)
-bot.run(TOKEN)
+while True:
+    try:
+        bot.run(TOKEN)
+    except Exception as e:
+        logging.error(str(e))
