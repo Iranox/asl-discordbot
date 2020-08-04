@@ -87,7 +87,17 @@ class QuoteCog(commands.Cog):
             return
         query = self.db.get_quotes(from_time=from_time, until_time=until_time)
         if query:
-            await ctx.send("Zitate:\n" + str(query))
+            text = str(query)
+            if len(text) > 1800:
+                qarr = query.split("\n")
+                quotes = ""
+                while qarr:
+                    while len(quotes) + len(qarr[0]) < 1800:
+                        quotes += qarr[0]
+                        del qarr[0]
+                    ctx.send("Zitate:\n" + quotes)
+                return
+            await ctx.send("Zitate:\n" + text)
         else:
             await ctx.send("Kann die Zitate nicht anezigen. Fehlerbeschreibung in den Logs :(")
 
