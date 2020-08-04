@@ -95,7 +95,7 @@ class QuoteCog(commands.Cog):
                     while len(quotes) + len(qarr[0]) < 1800:
                         quotes += qarr[0]
                         del qarr[0]
-                    ctx.send("Zitate:\n" + quotes)
+                    await ctx.send("Zitate:\n" + quotes)
                 return
             await ctx.send("Zitate:\n" + text)
         else:
