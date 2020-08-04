@@ -1,4 +1,5 @@
 from discord.ext import commands
+from discord import File as send_file
 from DbHandler import DbHandler
 import helper
 
@@ -89,15 +90,12 @@ class QuoteCog(commands.Cog):
         if query:
             text = str(query)
             if len(text) > 1800:
-                qarr = query.split("\n")
-                quotes = ""
-                while qarr:
-                    while len(quotes) + len(qarr[0]) < 1800:
-                        quotes += qarr[0]
-                        del qarr[0]
-                    await ctx.send("Zitate:\n" + quotes)
+                with open("zitate.txt", "w+") as f:
+                    f.write(text)
+                with open("zitate.txt", "rb") as f:
+                    await ctx.send("Hier sind die Zitate :)", file=send_file(f, "zitate.txt"))
                 return
-            await ctx.send("Zitate:\n" + text)
+            await ctx.send("Zitate:\n" + str(query))
         else:
             await ctx.send("Kann die Zitate nicht anezigen. Fehlerbeschreibung in den Logs :(")
 
