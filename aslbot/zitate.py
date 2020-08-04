@@ -1,6 +1,7 @@
 from discord.ext import commands
 from discord import File as send_file
 from datetime import datetime, timedelta
+import os
 from DbHandler import DbHandler
 import helper
 
@@ -95,6 +96,7 @@ class QuoteCog(commands.Cog):
                     f.write(text)
                 with open("zitate.txt", "rb") as f:
                     await ctx.send("Hier sind die Zitate :)", file=send_file(f, "zitate.txt"))
+                os.remove("zitate.txt")
                 return
             await ctx.send("Zitate:\n" + str(query))
         else:
@@ -145,6 +147,7 @@ class QuoteCog(commands.Cog):
                     f.write(text)
                 with open("zitate.txt", "rb") as f:
                     await ctx.send("Hier sind die Zitate :)", file=send_file(f, "zitate.txt"))
+                os.remove("zitate.txt")
                 return
             await ctx.send("Zitate:\n" + str(query))
         else:
