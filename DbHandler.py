@@ -161,7 +161,7 @@ class DbHandler:
             self.cursor.execute(statement, param_dict)
             munkels = ""
             for munkel in self.cursor:
-                munkels += munkel + "\n"
+                munkels += munkel[0] + "\n"
             return munkels
         except Exception as e:
             logging.error("Getting of munkel failed: " + str(e))
