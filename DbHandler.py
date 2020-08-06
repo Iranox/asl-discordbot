@@ -2,6 +2,7 @@ import mariadb
 from dotenv import load_dotenv
 import os
 import logging
+from datetime import datetime, timedelta
 
 load_dotenv()
 DB_USER = os.getenv("DB_USER")
@@ -133,7 +134,35 @@ class DbHandler:
             return program
         except mariadb.Error as e:
             logging.error("Getting of program failed: " + str(e))
-            return "Oops, da ist was schief gelaufen. Näherer in den Logs."
+            return "Oops, da ist was schief gelaufen. Näheres in den Logs."
         except Exception as e:
             logging.error("Getting of program failed: " + str(e))
-            return "Oops, da ist was schief gelaufen. Näherer in den Logs."
+            return "Oops, da ist was schief gelaufen. Näheres in den Logs."
+
+    def insert_munkel(self, text):
+        try:
+            self.cursor.execute("INSERT INTO munkel (text) VALUES (%(text)s);", {"text": text})
+            return True
+        except Exception as e:
+            logging.error("Adding of munkel failed: " + str(e))
+            return False
+
+    def read_munkel(self, time_from=None, time_until=None):
+        statement = "SELECT text FROM munkel"
+        if not time_from:
+            time_from = datetime.now() - timedelta(days=1)
+        param_dict = {"time_from": time_from}
+        statement += " WHERE timestamp>=%(time_from)s"
+        if time_until:
+            " AND timestamp<=%(time_until)s"
+            param_dict["time_until"] = time_until
+        statement += ";"
+        try:
+            self.cursor.execute(statement, param_dict)
+            munkels = ""
+            for munkel in self.cursor:
+                munkels += munkel + "\n"
+            return munkels
+        except Exception as e:
+            logging.error("Getting of munkel failed: " + str(e))
+            return "Oops, da ist was schief gelaufen. Näheres in den Logs."
