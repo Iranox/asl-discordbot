@@ -111,7 +111,8 @@ class FunCog(commands.Cog):
             11: "Heute sollt ihr Teebeutel jonglieren! Warum? - falsche Frage, ihr wollt wissen wie viele! Und darauf ist die Antwort: mindestens drei, für weitere gibts Bonuspunkte! (Den Beweis dürft ihr entweder als Foto oder als gif liefern :) )",
             12: "ASL-Feiertag!: Das ASL ist toll und das nächste ist nur noch 354 Tage von uns entfernt! Zeigt uns wie ihr euch auf das nächste ASL freut!",
             13: "Dem heutigen Challenge werden sich nur die mutigsten unter euch sich stellen! Kauft Sauerkrautsaft und trinkt ihn! (Natürlich brauchen wir für so eine Heldentat auch ein Beweisbild...)",
-            14: "Um die letzte Nacht wie gewohnt durchmachen zu können sind Durchhaltevermögen und natürlich auch der klassische Kaffee oder Tee absolut unverzichtbar! Deswegen wollen wir heute ein Bild von eurem treuen Heißgetränk das euch wach hält!"
+            14: "Um die letzte Nacht wie gewohnt durchmachen zu können sind Durchhaltevermögen und natürlich auch der klassische Kaffee oder Tee absolut unverzichtbar! Deswegen wollen wir heute ein Bild von eurem treuen Heißgetränk das euch wach hält!",
+            15: "Heute ist Schlaftag! Nehmt euer Bett (oder Schlafzeug) überall mit hin, um den gesamten Tag in kuscheliger Begleitung zu verbringen und das ASL noch so lange wie möglich hinauszuzögern. Schließlich kann man ja erst abreisen, wenn man aufgestanden ist! Schlaf-Sackhüpfen ist natürlich auch stark empfohlen!"
         }
         try:
             chall = challenges[dt.day]
